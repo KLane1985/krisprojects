@@ -1,0 +1,19 @@
+Date and Time: 2/14/2020 7:21:21 PM|Item Slot: A1|Item Name: Potato Crisps|Item Price: $3.05|Money fed: $0.00|Current Balance: $6.95
+Date and Time: 2/14/2020 7:21:24 PM|Item Slot: B2|Item Name: Cowtales|Item Price: $1.50|Money fed: $0.00|Current Balance: $5.45
+Date and Time: 2/14/2020 7:21:27 PM|Item Slot: B4|Item Name: Crunchie|Item Price: $1.75|Money fed: $0.00|Current Balance: $3.70
+Date and Time: 2/14/2020 7:21:32 PM|Item Slot: D3|Item Name: Chiclets|Item Price: $0.75|Money fed: $0.00|Current Balance: $2.95
+Date and Time: 2/14/2020 7:21:35 PM | Change Given:  $2.95 | Current Balance: $0.00
+Date and Time: 2/14/2020 8:32:50 PM|Item Slot: D4|Item Name: Triplemint|Item Price: $0.75|Money fed: $0.00|Current Balance: $9.25
+Date and Time: 2/14/2020 8:33:07 PM|Item Slot: D1|Item Name: U-Chews|Item Price: $0.85|Money fed: $0.00|Current Balance: $8.40
+Date and Time: 2/14/2020 8:33:11 PM | Change Given:  $8.40 | Current Balance: $0.00
+Date and Time: 2/14/2020 8:33:38 PM|Item Slot: C4|Item Name: Heavy|Item Price: $1.50|Money fed: $0.00|Current Balance: $13.50
+Date and Time: 2/14/2020 8:33:59 PM|Item Slot: D3|Item Name: Chiclets|Item Price: $0.75|Money fed: $0.00|Current Balance: $13.75
+Date and Time: 2/14/2020 8:34:01 PM|Item Slot: D3|Item Name: Chiclets|Item Price: $0.75|Money fed: $0.00|Current Balance: $13.00
+Date and Time: 2/14/2020 8:34:03 PM|Item Slot: D3|Item Name: Chiclets|Item Price: $0.75|Money fed: $0.00|Current Balance: $12.25
+Date and Time: 2/14/2020 8:34:05 PM|Item Slot: D3|Item Name: Chiclets|Item Price: $0.75|Money fed: $0.00|Current Balance: $11.50
+Date and Time: 2/14/2020 8:34:07 PM|Item Slot: D3|Item Name: Chiclets|Item Price: $0.75|Money fed: $0.00|Current Balance: $10.75
+Date and Time: 2/14/2020 8:34:38 PM|Item Slot: C4|Item Name: Heavy|Item Price: $1.50|Money fed: $0.00|Current Balance: $9.25
+Date and Time: 2/14/2020 8:34:40 PM | Change Given:  $9.25 | Current Balance: $0.00
+Date and Time: 2/14/2020 8:36:40 PM|Item Slot: A1|Item Name: Potato Crisps|Item Price: $3.05|Money fed: $0.00|Current Balance: $6.95
+Date and Time: 2/14/2020 8:36:43 PM | Change Given:  $6.95 | Current Balance: $0.00
+Date and Time: 2/14/2020 8:37:18 PM | Change Given:  $1.00 | Current Balance: $0.00
