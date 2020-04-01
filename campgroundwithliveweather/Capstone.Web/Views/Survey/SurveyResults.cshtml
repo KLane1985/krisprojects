@@ -1,0 +1,25 @@
+﻿@model IList<SurveyResultsModel>
+@{
+    ViewData["Title"] = "SurveyResults";
+}
+
+<div class="reviewtitle">
+    <h1><b>Favorite Parks</b></h1>
+</div>
+
+<div class="container-fluid">
+    @foreach (SurveyResultsModel result in Model)
+    {
+        <div class="row well well-sm">
+            <a asp-controller="Home" asp-action="ParkDetail" asp-route-code="@result.ParkCode">
+                <div class="col-sm-3 col-xs-4"><img class="img-responsive" src="~/images/parks/@(result.ParkCode).jpg" /></div>
+            </a>
+            <div class="col-sm-9 col-xs-8">
+                <a asp-controller="Home" asp-action="ParkDetail" asp-route-code="@result.ParkCode">
+                    <h3>@result.ParkName</h3>
+                </a>
+                <p>Number of surveys submitted: @result.SurveysSubmitted</p>
+            </div>
+        </div>
+    }
+</div>

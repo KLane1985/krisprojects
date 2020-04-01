@@ -1,0 +1,41 @@
+﻿@model SurveyModel
+@{
+    ViewData["Title"] = "Survey";
+    List<SelectListItem> parkSelect = new List<SelectListItem>();
+    Dictionary<string, string> parks = (Dictionary<string, string>)ViewData["parks"];
+    foreach(KeyValuePair<string, string> park in parks)
+    {
+        parkSelect.Add(new SelectListItem() { Text = park.Value, Value = park.Key });
+    }
+}
+
+<div class="container well well-sm">
+    <h2>Survey</h2>
+    <form asp-controller="Survey" asp-action="Survey" method="post">
+        <div class="form-group">
+            <label asp-for="ParkName">Park name:</label>
+            <select class="form-control" asp-for="ParkName" asp-items="parkSelect"></select>
+            <span asp-validation-for="ParkName"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email">Please enter your E-mail address:</label>
+            <input class="form-control" type="text" asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="StateOfResidence">State of residence:</label>
+            <select class="form-control" asp-for="StateOfResidence" asp-items="SurveyModel.states"></select>
+            <span asp-validation-for="StateOfResidence"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ActivityLevel">How active are you?:</label>
+            <select class="form-control" asp-for="ActivityLevel" asp-items="SurveyModel.ActivityTypes"></select>
+            <span asp-validation-for="ActivityLevel"></span>
+        </div>
+
+        <input type="submit" value="Submit" />
+    </form>
+</div>

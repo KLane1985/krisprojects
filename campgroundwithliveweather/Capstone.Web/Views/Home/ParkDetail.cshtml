@@ -1,0 +1,94 @@
+﻿@model ParkModel
+@{
+    ViewData["Title"] = "ParkDetail";
+    IList<WeatherModel> weathers = (IList<WeatherModel>)ViewData["weathers"];
+    UserSettingsModel settings = (UserSettingsModel)ViewData["settings"];
+    bool advisory = (string)TempData["advisory"] == "show";
+}
+<div class="container-fluid well well-lg">
+    <h2>@Model.ParkName</h2>
+    <div class="row">
+        <img id="detailimg" src="~/images/parks/@(Model.ParkCode).jpg" />
+    </div>
+    <div class="row">
+        <div id="parkDetail">
+            <div id="main">
+                <h3>@Model.State</h3>
+                <p>@Model.ParkDescription</p>
+                <p><i>"@Model.InspirationalQuote"</i></p>
+                <p>- <b>@Model.InspirationalQuoteSource</b></p>
+            </div>
+            <div id="side">
+                <p><b>Acreage:</b> @Model.Acreage.ToString("#,###") acres</p>
+                <p><b>Elevation:</b> @Model.ElevationInFeet.ToString("#,###") feet</p>
+                <p><b>Miles of Trail:</b> @Model.MilesOfTrail.ToString("#,###") miles</p>
+                <p><b>Number of Campsites:</b> @Model.NumberOfCampsites</p>
+                <p><b>Number of Animal Species:</b> @Model.NumberOfAnimalSpecies</p>
+                <p><b>Climate:</b> @Model.Climate</p>
+                <p><b>Year Founded:</b> @Model.YearFounded</p>
+                <p><b>Annual Visitor Count:</b> @Model.AnnualVisitorCount.ToString("#,###")</p>
+                <p><b>Entry Fee:</b> @Model.EntryFee.ToString("c")</p>
+            </div>
+        </div>
+
+        <div class="row" id="weatherbox">
+            <div class="col-sm-3 weathertoday">
+                <img class="img-responsive weatherimage" src="~/images/weather/@(weathers[0].GetForcast()).png" />
+                <p class="text-center">@weathers[0].GetDate()</p>
+                @if (settings.TempType == "F")
+                {
+                    <p class="text-center temptext">Low: @(weathers[0].Low)°F - High: @(weathers[0].High)°F</p>
+                }
+                @if (settings.TempType == "C")
+                {
+                    <p class="text-center temptext">Low: @((weathers[0].Low - 32) * 5 / 9)°C - High: @((weathers[0].High - 32) * 5 / 9)°C</p>
+                }
+                <p class="text-center advisory">@weathers[0].WeatherAdvisory</p>
+                <p class="text-center advisory">@weathers[0].TempAdvisory</p>
+            </div>
+            @for (int i = 1; i < weathers.Count; i++)
+            {
+                <div class="col-sm-2 weatherdays">
+                    <img class="img-responsive weatherimage" src="~/images/weather/@(weathers[i].GetForcast()).png" />
+                    <p class="text-center">@weathers[i].GetDate()</p>
+                    @if (settings.TempType == "F")
+                    {
+                        <p class="text-center temptext">Low: @(weathers[i].Low)°F</p>
+                        <p class="text-center temptext">High: @(weathers[i].High)°F</p>
+                    }
+                    @if (settings.TempType == "C")
+                    {
+                        <p class="text-center temptext">Low: @((weathers[i].Low - 32) * 5 / 9)°C</p>
+                        <p class="text-center temptext">High: @((weathers[i].High - 32) * 5 / 9)°C</p>
+                    }
+                    @if (advisory)
+                    {
+                        <p class="text-center advisory">@weathers[i].WeatherAdvisory</p>
+                        <p class="text-center advisory">@weathers[i].TempAdvisory</p>
+                    }
+                </div>
+            }
+        </div>
+        <div class="row">
+            <form id="tempButton" class="col-sm-1 col-xs-4" asp-action="ChangeTempType" asp-controller="Home" method="post">
+                @if (settings.TempType == "F")
+                {
+                    <input type="hidden" value="C" name="tempType" />
+                    <input type="hidden" value="@Model.ParkCode" name="code" />
+                    <input type="submit" value="convert to °C" />
+                }
+                @if (settings.TempType == "C")
+                {
+                    <input type="hidden" value="F" name="tempType" />
+                    <input type="hidden" value="@Model.ParkCode" name="code" />
+                    <input type="submit" value="Convert to °F" />
+                }
+            </form>
+            <form class="col-sm-1 col-xs-5" asp-action="ShowAdvisory" asp-controller="Home" method="post">
+                <input type="hidden" value="show" name="advisory" />
+                <input type="hidden" value="@Model.ParkCode" name="code" />
+                <input type="submit" value="Show Advisory" />
+            </form>
+        </div>
+    </div>
+</div>
